@@ -18,13 +18,15 @@ public class Main {
 
         double tempo = 0.0;
 
+        int quantidadePassos =0;
+
         System.out.println("\nIniciando simulação do PhysicsLab\n");
 
         while(tempo <= duracao){
             double posicao = posicaoInicial + (velocidade * tempo);
             System.out.printf("t = %.1f s | x = %.2f m%n", tempo, posicao);
 
-            // posicaoInicial + velocidade * tempo
+            quantidadePassos++;
 
             if(posicao > areaLimite || posicao < -areaLimite){
                 System.out.println("Status: partícula fora da área de observação");
@@ -34,6 +36,8 @@ public class Main {
             tempo = tempo + dt;
 
         }
+
+        System.out.println("\nQuantidade de Passos: " + quantidadePassos);
 
         System.out.println("\n-=-=-=-Teste Finalizado-=-=-=-\n");
 
