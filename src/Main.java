@@ -22,6 +22,20 @@ public class Main {
         return count;
     }
 
+    static String primeiraParticulaSairArea(double tempo, double[] posicoesIniciais , double[] velocidades){
+
+
+        for( int t = 0; t < tempo; t++ ){
+            for (int i = 0; i < posicoesIniciais.length; i++){
+                if( calcularPosicaoFinal(posicoesIniciais[i],velocidades[i],t) > LIMITE_AREA){
+                    return "\nTempo: "+ t + " | Particula "+ i + " | Posição final: "+ calcularPosicaoFinal(posicoesIniciais[i],velocidades[i],t);
+
+                }
+            }
+        }
+
+        return "\nNenhuma particula saiu da área";
+    }
 
     public static void main(String[] args) {
 
@@ -51,9 +65,22 @@ public class Main {
                 nomesFora = nomesFora + nomes[i] + " ";
             }
         }
-        System.out.println(nomesFora.trim() );
+        System.out.println(nomesFora.trim());
 
 
+        //t=3.0 s: partícula D saiu da área (x=51.0 m)
+
+            /*
+            para cada instante t, de 0 até 10:
+                para cada partícula i:
+                    se |posição de i em t| > limite:
+                        imprimir t, i, posição
+                        terminar tudo          // aqui entra o return (ou break com rótulo)
+
+            imprimir "Nenhuma partícula saiu da área."   // só chega aqui se nada disparou
+             */
+
+        System.out.println("\n::Primeiro a sair:::::\n " + primeiraParticulaSairArea(tempo, posicoesIniciais, velocidades));
     }
 
 
